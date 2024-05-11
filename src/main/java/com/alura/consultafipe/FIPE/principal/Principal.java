@@ -15,12 +15,9 @@ import java.util.Scanner;
 
 public class Principal {
     private static final String URL_BASE = "https://parallelum.com.br/fipe/api/v1/";
-    private static ConsumoApi consumo = new ConsumoApi();
-    private static ConverteDados conversor = new ConverteDados();
-    private static ConverteDadosModelo conversorModelos = new ConverteDadosModelo();
-
-    private static final int NUM_COLUMNS = 4;
-
+    private static final ConsumoApi consumo = new ConsumoApi();
+    private static final ConverteDados conversor = new ConverteDados();
+    private static final ConverteDadosModelo conversorModelos = new ConverteDadosModelo();
 
     public static void exibeMenu() {
 
@@ -31,14 +28,13 @@ public class Principal {
             System.out.println("Tabela FIPE");
 
             //menu
-            System.out.println(""" 
+            System.out.print(""" 
                 ******** OPÇÕES *******
                 1) Carro
                 2) Moto
                 3) Caminhão
                 4) Sair
-                Digite uma opção:
-                """);
+                Digite uma opção:""");
             int option = scanner.nextInt();
 
             switch (option){
@@ -73,12 +69,11 @@ public class Principal {
 // Display the menu of brands in four columns
         System.out.println("Menu de Marcas:");
         for (int i = 0; i < brandsPerColumn; i++) {
-            int index1 = i;
             int index2 = i + brandsPerColumn;
             int index3 = i + 2 * brandsPerColumn;
             int index4 = i + 3 * brandsPerColumn;
 
-            String marca1 = index1 < jsonMarcas.size() ? formatBrand(jsonMarcas.get(index1)) : "";
+            String marca1 = i < jsonMarcas.size() ? formatBrand(jsonMarcas.get(i)) : "";
             String marca2 = index2 < jsonMarcas.size() ? formatBrand(jsonMarcas.get(index2)) : "";
             String marca3 = index3 < jsonMarcas.size() ? formatBrand(jsonMarcas.get(index3)) : "";
             String marca4 = index4 < jsonMarcas.size() ? formatBrand(jsonMarcas.get(index4)) : "";
